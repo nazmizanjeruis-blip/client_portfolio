@@ -3,157 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Syazmi Rafizee - Digital Craftsman">
-    <title>Syazmi Rafizee | Digital Flora</title>
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <title>Floral Portfolio</title>
     <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
-            <a href="#home" class="logo">
-                <span class="leaf-icon">🌿</span> Syazmi R.
-            </a>
-            
+    <nav id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Bloom.<span class="dot">✿</span></a>
+            <button class="hamburger" aria-label="Toggle navigation" aria-expanded="false">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
             <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Work</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About Me</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
             </ul>
+        </div>
+    </nav>
 
-            <div class="hamburger" tabindex="0" aria-label="Menu">
-                <span class="line"></span>
-                <span class="line"></span>
-                <span class="line"></span>
-            </div>
-        </nav>
-    </header>
+    <section id="home">
+        <div class="hero-content">
+            <span class="floral-icon">🌸</span>
+            <h1 id="greeting">Hello!</h1>
+            <h2>I'm <span class="highlight">Your Name</span>.</h2>
+            <p>Cultivating beautiful digital experiences.</p>
+            <a href="#projects" class="btn">View My Garden</a>
+        </div>
+    </section>
 
-    <main>
-        <section id="home" class="hero">
-            <div class="floral-bg floral-1"></div>
-            <div class="floral-bg floral-2"></div>
-
-            <div class="container hero-content fade-in">
-                <p class="greeting">Hello, I am</p>
-                <h1 class="headline">Syazmi Rafizee.</h1>
-                <h2 class="sub-headline">Cultivating digital experiences on the web.</h2>
-                <p class="bio-text">
-                    I am a Multimedia Computing student at UNIMAS, blending logic with organic design to build responsive websites and interactive applications.
-                </p>
-                <a href="#projects" class="btn btn-primary">View My Garden</a>
-            </div>
-        </section>
-
-        <section id="about" class="section-light">
-            <div class="container split-layout">
-                <div class="about-visual fade-in">
-                    <div class="frame">
-                        <div class="frame-inner">SR</div>
-                    </div>
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>I am a passionate developer with a love for organic design and clean code. Just like a garden, I believe software requires patience, care, and constant pruning to grow into something beautiful.</p>
                 </div>
-                <div class="about-text fade-in">
-                    <h3 class="section-title">Rooted in Code</h3>
-                    <p>
-                        Just as a garden requires patience and structure, good software requires clean code and thoughtful architecture. My journey started in college and has bloomed into a passion for <strong>Full-Stack Development</strong> and <strong>Game Design</strong>.
-                    </p>
-                    <p>My technical toolkit includes:</p>
-                    <ul class="tech-grid">
-                        <li><span>🌱</span> HTML5 & CSS3</li>
-                        <li><span>🌿</span> JavaScript (ES6+)</li>
-                        <li><span>🌻</span> PHP & MySQL</li>
-                        <li><span>🌵</span> Unity Game Eng</li>
-                    </ul>
+                <div class="about-visual">
+                    <div class="flower-center"></div>
+                    <div class="petal p1"></div>
+                    <div class="petal p2"></div>
+                    <div class="petal p3"></div>
+                    <div class="petal p4"></div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="projects" class="section-dark">
-            <div class="container">
-                <h3 class="section-title center">Selected Works</h3>
-                <div class="projects-grid">
-                    
-                    <article class="project-card fade-in">
-                        <div class="card-header">
-                            <span class="category">UI/UX Design</span>
-                            <h4>Kuching ART App</h4>
-                        </div>
-                        <div class="card-body">
-                            <p>A high-fidelity prototype designed for Kuching's transit system. Focused on accessibility and real-time user feedback.</p>
-                            <div class="tags">
-                                <span>Figma</span><span>Prototyping</span>
-                            </div>
-                            <a href="#" class="btn-link">View Case Study &rarr;</a>
-                        </div>
-                    </article>
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title">My Projects</h2>
+            <div class="project-grid">
+                
+                <article class="project-card">
+                    <div class="card-header" style="background-color: #e8f5e9;">
+                        <h3>Portfolio Site</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>A responsive personal website with a floral theme and persistent navigation.</p>
+                        <div class="tags"><span>HTML</span><span>CSS</span></div>
+                        <a href="#" class="card-link">View Project &rarr;</a>
+                    </div>
+                </article>
 
-                    <article class="project-card fade-in">
-                        <div class="card-header">
-                            <span class="category">Web Dev</span>
-                            <h4>Coffee E-Commerce</h4>
-                        </div>
-                        <div class="card-body">
-                            <p>A full-stack solution for a local roastery. Features include inventory tracking, secure login, and cart management.</p>
-                            <div class="tags">
-                                <span>PHP</span><span>MySQL</span><span>CSS Grid</span>
-                            </div>
-                            <a href="#" class="btn-link">Visit Store &rarr;</a>
-                        </div>
-                    </article>
+                <article class="project-card">
+                    <div class="card-header" style="background-color: #fce4ec;">
+                        <h3>Task App</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>A JavaScript-based todo list that uses local storage to save your daily tasks.</p>
+                        <div class="tags"><span>JS</span><span>Local Storage</span></div>
+                        <a href="#" class="card-link">View Project &rarr;</a>
+                    </div>
+                </article>
 
-                    <article class="project-card fade-in">
-                        <div class="card-header">
-                            <span class="category">Game Dev</span>
-                            <h4>Educational Game</h4>
-                        </div>
-                        <div class="card-body">
-                            <p>A serious game project designed to teach social awareness through interactive storytelling and custom audio assets.</p>
-                            <div class="tags">
-                                <span>Unity</span><span>C#</span><span>Audio</span>
-                            </div>
-                            <a href="#" class="btn-link">Play Demo &rarr;</a>
-                        </div>
-                    </article>
+                <article class="project-card">
+                    <div class="card-header" style="background-color: #fff3e0;">
+                        <h3>Weather API</h3>
+                    </div>
+                    <div class="card-body">
+                        <p>Fetches real-time weather data and changes the UI background based on conditions.</p>
+                        <div class="tags"><span>API</span><span>Fetch</span></div>
+                        <a href="#" class="card-link">View Project &rarr;</a>
+                    </div>
+                </article>
 
-                </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <section id="contact" class="section-light">
-            <div class="container contact-wrapper">
-                <div class="contact-intro fade-in">
-                    <h3 class="section-title">Let's Grow Together</h3>
-                    <p>I am currently seeking internship opportunities for Feb 2025. Whether you have a question or a project, my inbox is always open.</p>
-                    <ul class="contact-details">
-                        <li>📧 rafizeerasid@gmail.com</li>
-                        <li>📱 +60 11-2528 5763</li>
-                        <li>📍 Kota Samarahan, Sarawak</li>
-                    </ul>
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="contact-sub">Let's grow something great together.</p>
+            
+            <form id="contactForm" onsubmit="return false;">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" placeholder="you@example.com" required>
                 </div>
-
-                <form class="botanical-form fade-in">
-                    <div class="input-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="input-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" rows="5" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Send Message 🍃</button>
-                </form>
-            </div>
-        </section>
-    </main>
+                <div class="form-group">
+                    <label for="message">Message</label>
+                    <textarea id="message" rows="5" placeholder="Your message..." required></textarea>
+                </div>
+                <button type="submit" class="btn btn-submit">Send Message</button>
+                <p id="form-feedback"></p>
+            </form>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; <span id="year"></span> Syazmi Rafizee. Designed with organic code.</p>
+        <p>&copy; 2025 Your Name. Built with 🌷 and Code.</p>
     </footer>
 
     <script src="script.js"></script>
