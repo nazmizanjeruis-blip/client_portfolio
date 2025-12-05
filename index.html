@@ -3,121 +3,157 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Syazmi Rafizee | Developer Portfolio</title>
+    <meta name="description" content="Portfolio of Syazmi Rafizee - Web & Game Developer">
+    <title>Syazmi Rafizee | Videograph Portfolio</title>
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <nav class="navbar">
+    <header id="navbar">
+        <div class="nav-container">
             <div class="logo">
                 <span class="play-icon">▶</span> SYAZMI.DEV
             </div>
             
-            <ul class="nav-menu">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Services</a></li>
-                <li><a href="#projects">Portfolio</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About Me</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
 
-            <div class="social-icons">
-                <a href="#">FB</a>
-                <a href="#">IG</a>
-                <a href="#">LI</a>
-            </div>
-
-            <div class="hamburger">
+            <div class="hamburger" aria-label="Toggle Navigation" role="button" tabindex="0">
                 <span class="bar"></span>
                 <span class="bar"></span>
                 <span class="bar"></span>
             </div>
-        </nav>
+        </div>
     </header>
 
     <section id="home" class="hero">
-        <div class="hero-bg-overlay"></div> <div class="container hero-container">
+        <div class="hero-bg-overlay"></div>
+        
+        <div class="container hero-container">
             <div class="hero-text">
-                <p class="subtitle">FOR WEB & MOBILE DEVELOPMENT</p>
-                <h1 class="main-title">DEVELOPER'S<br>PORTFOLIO</h1>
+                <p class="subtitle">WEB & GAME DEVELOPMENT</p>
+                <h1 class="main-title">CREATIVE<br>DEVELOPER</h1>
                 
-                <a href="#about" class="btn-corner">
-                    SEE MORE ABOUT ME
+                <a href="#projects" class="btn-corner">
+                    VIEW MY WORK
                     <span class="corner-top-left"></span>
                     <span class="corner-bottom-right"></span>
                 </a>
-                
-                <div class="pagination">
-                    <span class="active">01</span>
-                    <span>02</span>
-                    <span>03</span>
-                </div>
             </div>
 
             <div class="hero-image-wrapper">
-                <div class="hero-img-placeholder">
-                    <div class="silhouette"></div>
+                <div class="hero-img-placeholder" role="img" aria-label="Silhouette of developer standing on stage">
+                    </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">WHO AM I?</p>
+                <h2 class="section-heading">ABOUT ME</h2>
+                <div class="blue-line"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <p>
+                        I am a Multimedia Computing student at <strong>UNIMAS</strong> with a passion for building immersive digital experiences. I specialize in merging technical logic with creative design.
+                    </p>
+                    <ul class="skills-list">
+                        <li>▶ HTML5, CSS3, JavaScript</li>
+                        <li>▶ PHP & MySQL</li>
+                        <li>▶ Unity & Game Design</li>
+                        <li>▶ UI/UX (Figma)</li>
+                    </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="skills" class="services">
-        <div class="container services-container">
-            <div class="services-text">
-                <p class="section-label">MY EXPERTISE</p>
-                <h2 class="section-heading">WHAT I DO?</h2>
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <p class="section-label">MY PORTFOLIO</p>
+                <h2 class="section-heading">LATEST PROJECTS</h2>
                 <div class="blue-line"></div>
-                
-                <p class="description">
-                    I am a Multimedia Computing student passionate about bridging the gap between design and functionality. If you hire me, you get a dedicated developer ready to build custom solutions for your business needs.
-                </p>
-
-                <a href="#projects" class="btn-bracket">
-                    VIEW ALL PROJECTS
-                </a>
             </div>
 
-            <div class="services-grid">
-                <div class="service-item">
-                    <div class="icon-box">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
+            <div class="projects-grid">
+                <article class="project-card">
+                    <div class="card-image project-1-img" role="img" aria-label="Kuching ART App Interface"></div>
+                    <div class="card-content">
+                        <h3>Kuching ART App</h3>
+                        <p>A high-fidelity prototype for Kuching's transit system, focusing on real-time tracking and accessibility.</p>
+                        <a href="#" class="btn-text">View Case Study &rarr;</a>
                     </div>
-                    <h3>Web Development</h3>
-                    <p>Building responsive, accessible, and dynamic websites using HTML, CSS, PHP, and MySQL.</p>
-                </div>
+                </article>
 
-                <div class="service-item">
-                    <div class="icon-box">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
+                <article class="project-card">
+                    <div class="card-image project-2-img" role="img" aria-label="Coffee Shop Website"></div>
+                    <div class="card-content">
+                        <h3>Coffee Shop E-Com</h3>
+                        <p>Full-stack web application with secure login, inventory management, and order processing workflows.</p>
+                        <a href="#" class="btn-text">View Live Demo &rarr;</a>
                     </div>
-                    <h3>UI/UX Design</h3>
-                    <p>Creating high-fidelity prototypes and intuitive user interfaces using tools like Figma.</p>
-                </div>
+                </article>
 
-                <div class="service-item">
-                    <div class="icon-box">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
+                <article class="project-card">
+                    <div class="card-image project-3-img" role="img" aria-label="Game Design Docs"></div>
+                    <div class="card-content">
+                        <h3>Serious Game Design</h3>
+                        <p>Comprehensive documentation and audio asset creation for an educational game project.</p>
+                        <a href="#" class="btn-text">Read Documentation &rarr;</a>
                     </div>
-                    <h3>Mobile Apps</h3>
-                    <p>Developing functional mobile applications and designing interactive mobile experiences.</p>
-                </div>
-
-                <div class="service-item">
-                    <div class="icon-box">
-                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
-                    </div>
-                    <h3>Game Design</h3>
-                    <p>Crafting engaging game mechanics, documentation, and audio assets for immersive games.</p>
-                </div>
+                </article>
             </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <div class="container contact-container">
+            <div class="contact-info">
+                <h2 class="section-heading">GET IN TOUCH</h2>
+                <div class="blue-line"></div>
+                <p>Have a project in mind or just want to say hi? Feel free to send me a message.</p>
+                <p class="contact-detail">📧 rafizeerasid@gmail.com</p>
+                <p class="contact-detail">📱 +60 11-2528 5763</p>
+            </div>
+
+            <form class="contact-form" action="#" method="POST">
+                <div class="form-group">
+                    <label for="name" class="sr-only">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email" class="sr-only">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Your Email" required>
+                </div>
+                <div class="form-group">
+                    <label for="message" class="sr-only">Message</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <button type="submit" class="btn-corner">
+                    SEND MESSAGE
+                    <span class="corner-top-left"></span>
+                    <span class="corner-bottom-right"></span>
+                </button>
+            </form>
         </div>
     </section>
 
     <footer>
-        <p>&copy; <span id="year"></span> Syazmi Rafizee. Inspired by Videograph Theme.</p>
+        <div class="container">
+            <p>&copy; <span id="year"></span> Syazmi Rafizee. Built with HTML, CSS, JS.</p>
+        </div>
     </footer>
 
     <script src="script.js"></script>
