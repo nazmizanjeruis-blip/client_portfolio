@@ -155,7 +155,7 @@ nav {
     margin: 0 auto;
 }
 
-/* Larger Hero Image Style */
+/* Large Hero Image Style */
 .hero-img {
     margin-bottom: 40px;
     border-color: var(--white); 
@@ -210,7 +210,7 @@ nav {
 .p3 { transform: rotate(180deg); }
 .p4 { transform: rotate(270deg); }
 
-/* --- PROJECTS SECTION (CARD IMAGES) --- */
+/* --- PROJECTS SECTION (FIXED LAYOUT) --- */
 #projects { background-color: var(--sage-bg); }
 
 .project-grid {
@@ -222,19 +222,25 @@ nav {
 .project-card {
     background: var(--white);
     border-radius: 15px;
-    overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
+    
+    /* VITAL for alignment */
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    height: 100%;
 }
 
 .project-card:hover { transform: translateY(-5px); }
 
-/* Card Image Area */
+/* Image Container */
 .card-header {
-    height: 200px;
+    width: 100%;
+    height: 200px; /* Force fixed height */
+    flex-shrink: 0; /* Prevents shrinking */
     padding: 0;
+    margin: 0;
     background-color: #ddd;
 }
 
@@ -245,13 +251,20 @@ nav {
     display: block;
 }
 
+/* Text Area */
 .card-body { 
     padding: 25px; 
-    flex-grow: 1;
+    flex-grow: 1; /* Fills remaining space */
+    display: flex;
+    flex-direction: column;
+    background-color: var(--white);
+    position: relative;
+    z-index: 2;
 }
 
 .card-body h3 {
     font-size: 1.4rem;
+    margin-top: 0;
     margin-bottom: 10px;
     color: var(--dark-green);
     font-family: var(--font-heading);
@@ -271,7 +284,8 @@ nav {
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    margin-top: 15px;
+    margin-top: auto; /* Pushes link to bottom */
+    padding-top: 15px;
 }
 
 /* --- CONTACT SECTION --- */
