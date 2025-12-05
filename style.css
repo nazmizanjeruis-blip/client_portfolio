@@ -135,7 +135,7 @@ nav {
 }
 .btn:hover { background-color: var(--primary-green); }
 
-/* --- ABOUT SECTION & CSS FLOWER --- */
+/* --- ABOUT SECTION & PROFILE PHOTO --- */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -143,37 +143,28 @@ nav {
     align-items: center;
 }
 
-/* Pure CSS Flower Logic */
 .about-visual {
     position: relative;
-    width: 200px;
-    height: 200px;
-    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    justify-content: center;
 }
-.flower-center {
-    width: 60px;
-    height: 60px;
-    background: #fdd835;
-    border-radius: 50%;
-    position: absolute;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 2;
+
+/* NEW: Styles for your Resume Picture */
+.profile-photo {
+    width: 250px;
+    height: 250px;
+    object-fit: cover; /* Ensures photo doesn't look squashed */
+    border-radius: 50%; /* Makes it circular */
+    border: 5px solid var(--blush-bg);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
 }
-.petal {
-    width: 80px;
-    height: 80px;
-    background: var(--blush-bg);
-    border-radius: 50% 50% 0 50%;
-    position: absolute;
-    top: 50%; left: 50%;
-    transform-origin: 0 0;
-    border: 2px solid #fff;
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-green);
 }
-.p1 { transform: rotate(0deg); }
-.p2 { transform: rotate(90deg); }
-.p3 { transform: rotate(180deg); }
-.p4 { transform: rotate(270deg); }
 
 /* --- PROJECTS SECTION --- */
 #projects { background-color: var(--sage-bg); }
@@ -260,7 +251,6 @@ footer {
     font-weight: bold;
 }
 
-/* Contact Direct Link styling */
 .contact-info-direct a {
     color: var(--primary-green);
     text-decoration: none;
@@ -291,6 +281,13 @@ footer {
     .nav-links.active { left: 0; }
     
     .about-grid { grid-template-columns: 1fr; }
+    
+    .profile-photo {
+        width: 180px;
+        height: 180px;
+        margin-top: 20px;
+    }
+    
     #home h1 { font-size: 2.5rem; }
 }
 
