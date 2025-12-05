@@ -3,105 +3,117 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Syazmi Rafizee - A Playful Web Developer">
-    <title>Syazmi's World | Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta name="description" content="Portfolio of Syazmi Rafizee - Digital Craftsman">
+    <title>Syazmi Rafizee | Digital Flora</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <nav class="navbar">
-            <div class="logo">Syazmi<span>.Land</span></div>
+            <a href="#home" class="logo">
+                <span class="leaf-icon">🌿</span> Syazmi R.
+            </a>
+            
             <ul class="nav-links">
                 <li><a href="#home" class="active">Home</a></li>
                 <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
+                <li><a href="#projects">Work</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="hamburger" aria-label="Toggle Menu" tabindex="0">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
+
+            <div class="hamburger" tabindex="0" aria-label="Menu">
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
             </div>
         </nav>
     </header>
 
     <main>
         <section id="home" class="hero">
-            <div class="sun">
-                <div class="sun-face"></div>
-                <div class="rays"></div>
-            </div>
-            <div class="cloud cloud-1"></div>
-            <div class="cloud cloud-2"></div>
-            
-            <div class="container hero-content">
-                <div class="badge">Eh-oh! 👋</div>
-                <h1>I'm Syazmi Rafizee</h1>
-                <p>I build happy websites & fun games!</p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-po">See Projects</a>
-                    <a href="#contact" class="btn btn-tinky">Say Hello</a>
-                </div>
-            </div>
+            <div class="floral-bg floral-1"></div>
+            <div class="floral-bg floral-2"></div>
 
-            <div class="hills">
-                <div class="hill hill-1"></div>
-                <div class="hill hill-2"></div>
-                <div class="hill hill-3"></div>
+            <div class="container hero-content fade-in">
+                <p class="greeting">Hello, I am</p>
+                <h1 class="headline">Syazmi Rafizee.</h1>
+                <h2 class="sub-headline">Cultivating digital experiences on the web.</h2>
+                <p class="bio-text">
+                    I am a Multimedia Computing student at UNIMAS, blending logic with organic design to build responsive websites and interactive applications.
+                </p>
+                <a href="#projects" class="btn btn-primary">View My Garden</a>
             </div>
         </section>
 
-        <section id="about" class="section-panel">
-            <div class="container">
-                <h2 class="title-dipsy">About Me</h2>
-                <div class="content-wrapper">
-                    <div class="avatar-circle">SR</div>
-                    <div class="text-content">
-                        <p><strong>Big Hug!</strong> I am a Multimedia Computing student at UNIMAS. Just like the Teletubbies love Tubby Custard, I love coding mobile apps and websites!</p>
-                        <p>My goal is to create digital experiences that make people smile.</p>
-                        
-                        <div class="skills-pills">
-                            <span class="pill pill-purple">HTML/CSS</span>
-                            <span class="pill pill-green">JavaScript</span>
-                            <span class="pill pill-yellow">Game Dev</span>
-                            <span class="pill pill-red">Figma</span>
-                        </div>
+        <section id="about" class="section-light">
+            <div class="container split-layout">
+                <div class="about-visual fade-in">
+                    <div class="frame">
+                        <div class="frame-inner">SR</div>
                     </div>
                 </div>
+                <div class="about-text fade-in">
+                    <h3 class="section-title">Rooted in Code</h3>
+                    <p>
+                        Just as a garden requires patience and structure, good software requires clean code and thoughtful architecture. My journey started in college and has bloomed into a passion for <strong>Full-Stack Development</strong> and <strong>Game Design</strong>.
+                    </p>
+                    <p>My technical toolkit includes:</p>
+                    <ul class="tech-grid">
+                        <li><span>🌱</span> HTML5 & CSS3</li>
+                        <li><span>🌿</span> JavaScript (ES6+)</li>
+                        <li><span>🌻</span> PHP & MySQL</li>
+                        <li><span>🌵</span> Unity Game Eng</li>
+                    </ul>
+                </div>
             </div>
         </section>
 
-        <section id="projects" class="section-transparent">
+        <section id="projects" class="section-dark">
             <div class="container">
-                <h2 class="title-laalaa">My Creations</h2>
+                <h3 class="section-title center">Selected Works</h3>
                 <div class="projects-grid">
                     
-                    <article class="card card-tinky">
-                        <div class="card-img" style="background-color: #e0d4fc;">🚧</div>
+                    <article class="project-card fade-in">
+                        <div class="card-header">
+                            <span class="category">UI/UX Design</span>
+                            <h4>Kuching ART App</h4>
+                        </div>
                         <div class="card-body">
-                            <h3>Kuching ART App</h3>
-                            <p>A helpful app for the city bus system. It helps people get around!</p>
-                            <a href="#" class="btn-link">View App</a>
+                            <p>A high-fidelity prototype designed for Kuching's transit system. Focused on accessibility and real-time user feedback.</p>
+                            <div class="tags">
+                                <span>Figma</span><span>Prototyping</span>
+                            </div>
+                            <a href="#" class="btn-link">View Case Study &rarr;</a>
                         </div>
                     </article>
 
-                    <article class="card card-dipsy">
-                        <div class="card-img" style="background-color: #d4fce0;">☕</div>
+                    <article class="project-card fade-in">
+                        <div class="card-header">
+                            <span class="category">Web Dev</span>
+                            <h4>Coffee E-Commerce</h4>
+                        </div>
                         <div class="card-body">
-                            <h3>Coffee Shop Web</h3>
-                            <p>An online shop to buy delicious coffee and manage orders.</p>
-                            <a href="#" class="btn-link">Visit Shop</a>
+                            <p>A full-stack solution for a local roastery. Features include inventory tracking, secure login, and cart management.</p>
+                            <div class="tags">
+                                <span>PHP</span><span>MySQL</span><span>CSS Grid</span>
+                            </div>
+                            <a href="#" class="btn-link">Visit Store &rarr;</a>
                         </div>
                     </article>
 
-                    <article class="card card-po">
-                        <div class="card-img" style="background-color: #fcd4d4;">🎮</div>
+                    <article class="project-card fade-in">
+                        <div class="card-header">
+                            <span class="category">Game Dev</span>
+                            <h4>Educational Game</h4>
+                        </div>
                         <div class="card-body">
-                            <h3>Serious Game</h3>
-                            <p>A fun educational game designed to teach people important things.</p>
-                            <a href="#" class="btn-link">Play Game</a>
+                            <p>A serious game project designed to teach social awareness through interactive storytelling and custom audio assets.</p>
+                            <div class="tags">
+                                <span>Unity</span><span>C#</span><span>Audio</span>
+                            </div>
+                            <a href="#" class="btn-link">Play Demo &rarr;</a>
                         </div>
                     </article>
 
@@ -109,37 +121,39 @@
             </div>
         </section>
 
-        <section id="contact" class="section-panel">
-            <div class="container">
-                <h2 class="title-po">Time for Bye-Bye?</h2>
-                <p style="text-align: center; margin-bottom: 2rem;">Not yet! Send me a message first!</p>
-                
-                <form class="fun-form">
-                    <div class="form-group">
-                        <label for="name">Your Name</label>
-                        <input type="text" id="name" placeholder="What's your name?">
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Your Email</label>
-                        <input type="email" id="email" placeholder="email@example.com">
-                    </div>
-                    <div class="form-group">
-                        <label for="msg">Message</label>
-                        <textarea id="msg" rows="4" placeholder="Type something nice..."></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-dipsy">Send Message!</button>
-                </form>
-
-                <div class="contact-links">
-                    <p>Or call me on my Tubby Phone: <strong>011-2528 5763</strong></p>
+        <section id="contact" class="section-light">
+            <div class="container contact-wrapper">
+                <div class="contact-intro fade-in">
+                    <h3 class="section-title">Let's Grow Together</h3>
+                    <p>I am currently seeking internship opportunities for Feb 2025. Whether you have a question or a project, my inbox is always open.</p>
+                    <ul class="contact-details">
+                        <li>📧 rafizeerasid@gmail.com</li>
+                        <li>📱 +60 11-2528 5763</li>
+                        <li>📍 Kota Samarahan, Sarawak</li>
+                    </ul>
                 </div>
+
+                <form class="botanical-form fade-in">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message 🍃</button>
+                </form>
             </div>
         </section>
     </main>
 
     <footer>
-        <div class="sun-footer"></div>
-        <p>&copy; <span id="year"></span> Syazmi Rafizee. Made with Tubby Magic.</p>
+        <p>&copy; <span id="year"></span> Syazmi Rafizee. Designed with organic code.</p>
     </footer>
 
     <script src="script.js"></script>
