@@ -3,963 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Muhamad Syazmi Rafizee Bin Rasid - Multimedia Computing Student & Software Developer">
-    <title>Syazmi Rafizee | Portfolio</title>
-    <style>
-        /* --- CSS VARIABLES & RESET --- */
-        :root {
-            --primary-color: #3b82f6; /* Lighter Blue */
-            --secondary-color: #1d4ed8;
-            --accent-color: #60a5fa;
-            --sidebar-bg: #111827;
-            --sidebar-text: #f3f4f6;
-            --text-main: #1f2937;
-            --text-light: #6b7280;
-            --bg-body: #f3f4f6;
-            --bg-card: #ffffff;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-            --transition: all 0.3s ease;
-            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            --sidebar-width: 280px;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: var(--font-main);
-            line-height: 1.6;
-            color: var(--text-main);
-            background-color: var(--bg-body);
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        ul {
-            list-style: none;
-        }
-
-        /* --- LAYOUT STRUCTURE --- */
-        
-        /* Sidebar (Desktop) / Header (Mobile) */
-        header {
-            position: fixed;
-            z-index: 1000;
-            background: var(--sidebar-bg);
-            color: var(--sidebar-text);
-            transition: var(--transition);
-        }
-
-        /* Main Content Wrapper */
-        main {
-            transition: var(--transition);
-        }
-
-        section {
-            padding: 5rem 2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            min-height: 100vh; /* Make sections fill screen */
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-
-        /* --- NAVIGATION STYLES --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 1.5rem;
-            height: 100%;
-        }
-
-        .logo {
-            font-size: 1.75rem;
-            font-weight: 800;
-            color: var(--primary-color);
-            letter-spacing: -0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            color: #9ca3af; /* Gray text */
-            transition: var(--transition);
-            position: relative;
-            padding: 0.5rem 0;
-            display: block;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: white;
-        }
-
-        /* Indicator Line */
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: var(--primary-color);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after, .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .hamburger {
-            display: none;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.5rem;
-        }
-
-        .bar {
-            display: block;
-            width: 25px;
-            height: 3px;
-            margin: 5px auto;
-            background-color: white;
-            transition: var(--transition);
-        }
-
-        /* --- HERO SECTION --- */
-        #home {
-            position: relative;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            align-items: center;
-            gap: 2rem;
-            padding-top: 0; /* Remove padding top because of full height */
-        }
-
-        .hero-content {
-            z-index: 2;
-        }
-
-        .hero-visual {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-        }
-
-        /* Abstract Shape behind avatar */
-        .hero-visual::before {
-            content: '';
-            position: absolute;
-            width: 300px;
-            height: 300px;
-            background: var(--primary-color);
-            opacity: 0.1;
-            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
-            z-index: 1;
-            animation: morph 8s ease-in-out infinite;
-        }
-
-        @keyframes morph {
-            0% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-            50% { border-radius: 70% 30% 30% 70% / 70% 70% 30% 30%; }
-            100% { border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; }
-        }
-
-        .profile-initial {
-            width: 200px;
-            height: 200px;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            font-size: 5rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 24px; /* Squircle */
-            box-shadow: var(--shadow);
-            z-index: 2;
-            transform: rotate(-3deg);
-            transition: var(--transition);
-        }
-
-        .profile-initial:hover {
-            transform: rotate(0deg) scale(1.05);
-        }
-
-        h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-            color: #111827;
-        }
-
-        h1 span {
-            color: var(--primary-color);
-        }
-
-        .typewriter {
-            font-size: 1.5rem;
-            color: var(--text-light);
-            margin-bottom: 2rem;
-            height: 1.5em;
-        }
-
-        .cta-buttons {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .btn {
-            padding: 0.85rem 2rem;
-            border-radius: 8px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            border: 2px solid transparent;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background-color: var(--primary-color);
-            color: white;
-            box-shadow: 0 4px 6px rgba(37, 99, 235, 0.3);
-        }
-
-        .btn-primary:hover {
-            background-color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        .btn-outline {
-            border-color: var(--primary-color);
-            color: var(--primary-color);
-            background: transparent;
-        }
-
-        .btn-outline:hover {
-            background-color: var(--primary-color);
-            color: white;
-            transform: translateY(-2px);
-        }
-
-        /* --- ABOUT SECTION --- */
-        .section-title {
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: var(--text-main);
-            position: relative;
-            display: inline-block;
-        }
-        
-        .section-title::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -10px;
-            width: 40px;
-            height: 4px;
-            background: var(--primary-color);
-            border-radius: 2px;
-        }
-
-        .about-layout {
-            display: grid;
-            grid-template-columns: 1.2fr 0.8fr; /* Asymmetric grid */
-            gap: 4rem;
-        }
-
-        .about-text p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            color: var(--text-light);
-            text-align: justify;
-        }
-
-        .timeline {
-            border-left: 2px solid #e5e7eb;
-            padding-left: 2rem;
-            position: relative;
-        }
-
-        .timeline-item {
-            margin-bottom: 2rem;
-            position: relative;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.6rem;
-            top: 0.4rem;
-            width: 12px;
-            height: 12px;
-            background: var(--primary-color);
-            border-radius: 50%;
-            border: 2px solid white;
-            box-shadow: 0 0 0 2px var(--primary-color);
-        }
-
-        .timeline-item h4 {
-            font-size: 1.1rem;
-            color: var(--text-main);
-        }
-
-        .timeline-item .time {
-            font-size: 0.85rem;
-            color: var(--primary-color);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            display: block;
-        }
-
-        .skill-group {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            margin-bottom: 1.5rem;
-        }
-
-        .skill-group h4 {
-            margin-bottom: 1rem;
-            border-bottom: 1px solid #e5e7eb;
-            padding-bottom: 0.5rem;
-        }
-
-        .skill-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .skill-tag {
-            background: #eff6ff;
-            color: var(--primary-color);
-            padding: 0.35rem 0.85rem;
-            border-radius: 6px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-        }
-        
-        .skill-tag:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-
-        /* --- PROJECTS SECTION --- */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-        }
-
-        .project-card {
-            background: var(--bg-card);
-            border-radius: 16px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-            display: flex;
-            flex-direction: column;
-            border: none;
-            position: relative;
-        }
-
-        .project-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-
-        .project-header {
-            background: linear-gradient(135deg, #3b82f6, #2563eb);
-            height: 160px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            position: relative;
-        }
-        
-        /* Decorative circle in header */
-        .project-header::after {
-            content: '';
-            position: absolute;
-            top: -20px;
-            right: -20px;
-            width: 100px;
-            height: 100px;
-            background: rgba(255,255,255,0.1);
-            border-radius: 50%;
-        }
-
-        .project-content {
-            padding: 2rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-title {
-            font-size: 1.35rem;
-            margin-bottom: 0.75rem;
-            color: var(--text-main);
-            font-weight: 700;
-        }
-
-        .project-desc {
-            color: var(--text-light);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-            flex-grow: 1;
-        }
-
-        .project-footer {
-            margin-top: auto;
-            border-top: 1px solid #f3f4f6;
-            padding-top: 1rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tech-pill {
-            font-size: 0.75rem;
-            padding: 0.25rem 0.6rem;
-            background: #f3f4f6;
-            border-radius: 4px;
-            color: #4b5563;
-            font-weight: 600;
-        }
-
-        /* --- CONTACT SECTION --- */
-        .contact-layout {
-            display: grid;
-            grid-template-columns: 1fr 1.5fr;
-            gap: 4rem;
-            background: white;
-            padding: 3rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .contact-sidebar {
-            background: #f8fafc;
-            padding: 2rem;
-            border-radius: 12px;
-            height: fit-content;
-        }
-
-        .info-item {
-            display: flex;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            gap: 1rem;
-            color: var(--text-main);
-        }
-
-        .info-icon {
-            min-width: 40px;
-            height: 40px;
-            background: white;
-            color: var(--primary-color);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-            color: #374151;
-            font-size: 0.9rem;
-        }
-
-        .form-input {
-            width: 100%;
-            padding: 1rem;
-            border: 1px solid #e5e7eb;
-            border-radius: 8px;
-            font-family: inherit;
-            transition: var(--transition);
-            background: #f9fafb;
-        }
-
-        .form-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            background: white;
-            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
-        }
-
-        /* --- FOOTER --- */
-        .footer {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        /* =========================================
-           RESPONSIVE & DESKTOP SIDEBAR LOGIC
-           ========================================= */
-        
-        /* DESKTOP LAYOUT (Sidebar) */
-        @media (min-width: 992px) {
-            header {
-                width: var(--sidebar-width);
-                height: 100vh;
-                top: 0;
-                left: 0;
-                display: flex;
-                flex-direction: column;
-                justify-content: center;
-                padding: 0;
-            }
-
-            nav {
-                flex-direction: column;
-                align-items: center;
-                gap: 2rem;
-                width: 100%;
-            }
-
-            .logo {
-                margin-bottom: 2rem;
-                font-size: 2rem;
-            }
-
-            .nav-links {
-                flex-direction: column;
-                align-items: center;
-                width: 100%;
-                gap: 0;
-            }
-
-            .nav-links li {
-                width: 100%;
-                text-align: center;
-            }
-
-            .nav-links a {
-                padding: 1rem 0;
-                border-left: 3px solid transparent;
-            }
-
-            .nav-links a.active, .nav-links a:hover {
-                background: rgba(255,255,255,0.05);
-                border-left-color: var(--primary-color);
-            }
-
-            .nav-links a::after {
-                display: none; /* Remove underline on sidebar */
-            }
-
-            .hamburger {
-                display: none;
-            }
-
-            /* Shift Main Content */
-            main {
-                margin-left: var(--sidebar-width);
-            }
-
-            footer {
-                margin-left: var(--sidebar-width);
-            }
-        }
-
-        /* TABLET & MOBILE (Top Bar) */
-        @media (max-width: 991px) {
-            header {
-                width: 100%;
-                height: 70px;
-                top: 0;
-                left: 0;
-            }
-
-            main {
-                margin-left: 0;
-                padding-top: 70px;
-            }
-
-            section {
-                padding: 4rem 1.5rem;
-                height: auto;
-                min-height: auto;
-                display: block; /* Stack content normally */
-            }
-
-            #home {
-                grid-template-columns: 1fr;
-                text-align: center;
-                padding-top: 2rem;
-                min-height: 90vh;
-                display: flex;
-                flex-direction: column-reverse; /* Visual on top on mobile? No, let's keep text top */
-                justify-content: center;
-            }
-
-            .cta-buttons {
-                justify-content: center;
-            }
-            
-            .hero-visual {
-                margin-bottom: 2rem;
-            }
-
-            .about-layout, .contact-layout {
-                grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .contact-layout {
-                padding: 1.5rem;
-            }
-
-            .hamburger {
-                display: block;
-            }
-
-            .nav-links {
-                position: fixed;
-                top: 70px;
-                left: 0;
-                width: 100%;
-                height: 0;
-                background: var(--sidebar-bg);
-                flex-direction: column;
-                overflow: hidden;
-                transition: height 0.3s ease;
-                z-index: 999;
-                padding: 0;
-            }
-
-            .nav-links.active {
-                height: 100vh;
-                padding-top: 2rem;
-            }
-
-            .nav-links a {
-                padding: 1rem;
-                text-align: center;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    <meta name="description" content="Portfolio of Muhamad Syazmi Rafizee Bin Rasid - Multimedia Computing Student">
+    <title>Syazmi Rafizee | Software Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
         <nav>
-            <div class="logo">SR.</div>
-            <button class="hamburger" aria-label="Toggle Navigation">
-                <span class="bar"></span>
-                <span class="bar"></span>
-                <span class="bar"></span>
-            </button>
-            <ul class="nav-links">
-                <li><a href="#home" class="active">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+            <div class="logo">
+                <a href="#home">SR</a>
+            </div>
+            
+            <div class="nav-right">
+                <ol class="nav-links">
+                    <li><a href="#about"><span>01.</span> About</a></li>
+                    <li><a href="#projects"><span>02.</span> Projects</a></li>
+                    <li><a href="#contact"><span>03.</span> Contact</a></li>
+                </ol>
+                <a href="#" class="resume-btn">Resume</a>
+                
+                <div class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </div>
         </nav>
     </header>
 
+    <div class="sidebar-menu">
+        <ol>
+            <li><a href="#about"><span>01.</span> About</a></li>
+            <li><a href="#projects"><span>02.</span> Projects</a></li>
+            <li><a href="#contact"><span>03.</span> Contact</a></li>
+        </ol>
+        <a href="#" class="resume-btn">Resume</a>
+    </div>
+
     <main>
-        <!-- Hero Section -->
-        <section id="home">
-            <div class="hero-content">
-                <h1>Hi, I'm <br><span>Syazmi Rafizee</span></h1>
-                <div class="typewriter" id="typewriter"></div>
-                <div class="cta-buttons">
-                    <a href="#projects" class="btn btn-primary">My Projects</a>
-                    <a href="#contact" class="btn btn-outline">Contact Me</a>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="profile-initial">SR</div>
-            </div>
+        <section id="home" class="hero-section fade-in">
+            <p class="mono-heading">Hi, my name is</p>
+            <h1 class="big-heading">Syazmi Rafizee.</h1>
+            <h2 class="big-heading slate">I build things for the web.</h2>
+            <p class="hero-desc">
+                I am a final-year Multimedia Computing student at <strong>UNIMAS</strong> specializing in building exceptional digital experiences. Currently, I'm focused on full-stack web development and UI/UX design.
+            </p>
+            <a href="#projects" class="btn-main">Check out my projects!</a>
         </section>
 
-        <!-- About Section -->
-        <section id="about">
-            <h2 class="section-title">About Me</h2>
-            <div class="about-layout">
-                <div class="about-main">
-                    <div class="about-text">
-                        <p>
-                            I am a final-year Multimedia Computing student at <strong>Universiti Malaysia Sarawak (UNIMAS)</strong>, driven by a passion for solving complex problems through code. My academic journey has equipped me with a robust foundation in software development, data structures, and user-centric design.
-                        </p>
-                        <p>
-                            I am actively seeking an internship opportunity for <strong>February - August 2025</strong>. My goal is to join a dynamic team where I can contribute to meaningful projects while refining my skills in full-stack web development and UI/UX design.
-                        </p>
-                    </div>
-                    
-                    <div class="skill-group">
-                        <h4>Technical Arsenal</h4>
-                        <div class="skill-tags">
-                            <span class="skill-tag">HTML5 & CSS3</span>
-                            <span class="skill-tag">JavaScript (ES6+)</span>
-                            <span class="skill-tag">PHP & MySQL</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">Figma</span>
-                            <span class="skill-tag">Git</span>
-                        </div>
-                    </div>
+        <section id="about" class="fade-in">
+            <h2 class="numbered-heading"><span>01.</span> About Me</h2>
+            <div class="about-grid">
+                <div class="about-text">
+                    <p>
+                        Hello! My name is Syazmi and I enjoy creating things that live on the internet. My interest in web development started back in college when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS is fun!
+                    </p>
+                    <p>
+                        Fast-forward to today, I am completing my degree at <a href="#" class="inline-link">Universiti Malaysia Sarawak</a>. I am actively seeking an internship for <strong>Feb - Aug 2025</strong>.
+                    </p>
+                    <p>Here are a few technologies I've been working with recently:</p>
+                    <ul class="skills-list">
+                        <li>JavaScript (ES6+)</li>
+                        <li>HTML & CSS</li>
+                        <li>PHP & MySQL</li>
+                        <li>C++</li>
+                        <li>Figma</li>
+                        <li>Git</li>
+                    </ul>
                 </div>
-
-                <div class="about-sidebar">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <span class="time">Oct 2023 - Present</span>
-                            <h4>B.Comp.Sc (Multimedia Computing)</h4>
-                            <p style="font-size: 0.9rem; color: #6b7280;">UNIMAS | CGPA: 3.02</p>
-                        </div>
-                        <div class="timeline-item">
-                            <span class="time">2020 - 2022</span>
-                            <h4>Science Programme (Physics & CS)</h4>
-                            <p style="font-size: 0.9rem; color: #6b7280;">Kolej Matrikulasi Labuan | CGPA: 3.21</p>
-                        </div>
+                <div class="about-img">
+                    <div class="img-wrapper">
+                        <div class="img-placeholder">SR</div> 
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Projects Section -->
-        <section id="projects">
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="projects-grid">
-                
-                <!-- Project 1 -->
-                <article class="project-card">
-                    <div class="project-header">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="16" height="16" x="4" y="3" rx="2"/><path d="M8 19v2"/><path d="M16 19v2"/><path d="M4 11h16"/><path d="M12 3v8"/></svg>
-                    </div>
+        <section id="projects" class="fade-in">
+            <h2 class="numbered-heading"><span>02.</span> Some Things I've Built</h2>
+            
+            <ul class="projects-list">
+                <li class="project-item">
                     <div class="project-content">
+                        <p class="project-overline">Featured Project</p>
                         <h3 class="project-title">Kuching ART App</h3>
-                        <p class="project-desc">
-                            High-fidelity interactive prototype for Kuching's Autonomous Rapid Transit system. Optimized for real-time travel visualization and accessibility.
-                        </p>
-                        <div class="project-footer">
-                            <span class="tech-pill">UI/UX</span>
-                            <span class="tech-pill">Figma</span>
-                            <span class="tech-pill">HCI</span>
+                        <div class="project-description">
+                            <p>A high-fidelity interactive prototype for Kuching's Autonomous Rapid Transit system. Designed with a focus on real-time travel visualization and accessibility standards.</p>
                         </div>
+                        <ul class="project-tech-list">
+                            <li>UI/UX</li>
+                            <li>Figma</li>
+                            <li>HCI</li>
+                        </ul>
                     </div>
-                </article>
+                </li>
 
-                <!-- Project 2 -->
-                <article class="project-card">
-                    <div class="project-header" style="background: linear-gradient(135deg, #10b981, #059669);">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8h1a4 4 0 1 1 0 8h-1"/><path d="M3 8h14v9a4 4 0 0 1-4 4H7a4 4 0 0 1-4-4Z"/><line x1="6" x2="6" y1="2" y2="4"/><line x1="10" x2="10" y1="2" y2="4"/><line x1="14" x2="14" y1="2" y2="4"/></svg>
-                    </div>
+                <li class="project-item">
                     <div class="project-content">
+                        <p class="project-overline">Featured Project</p>
                         <h3 class="project-title">Coffee Shop E-Commerce</h3>
-                        <p class="project-desc">
-                            Full-stack web application featuring secure customer record management and order processing workflows using relational databases.
-                        </p>
-                        <div class="project-footer">
-                            <span class="tech-pill">PHP</span>
-                            <span class="tech-pill">MySQL</span>
-                            <span class="tech-pill">HTML/CSS</span>
+                        <div class="project-description">
+                            <p>A web application for a local coffee shop featuring secure customer record management, inventory tracking, and order processing workflows using relational databases.</p>
                         </div>
+                        <ul class="project-tech-list">
+                            <li>PHP</li>
+                            <li>MySQL</li>
+                            <li>HTML/CSS</li>
+                        </ul>
                     </div>
-                </article>
+                </li>
 
-                <!-- Project 3 -->
-                <article class="project-card">
-                    <div class="project-header" style="background: linear-gradient(135deg, #f59e0b, #d97706);">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="6" x2="10" y1="12" y2="12"/><line x1="8" x2="8" y1="10" y2="14"/><line x1="15" x2="15.01" y1="13" y2="13"/><line x1="18" x2="18.01" y1="11" y2="11"/><rect width="20" height="12" x="2" y="6" rx="2"/></svg>
-                    </div>
+                <li class="project-item">
                     <div class="project-content">
+                        <p class="project-overline">Featured Project</p>
                         <h3 class="project-title">Mobile Game Design</h3>
-                        <p class="project-desc">
-                            Designed audio assets and comprehensive documentation (GDD) for a serious game project addressing real-world issues.
-                        </p>
-                        <div class="project-footer">
-                            <span class="tech-pill">Game Design</span>
-                            <span class="tech-pill">Audio</span>
-                            <span class="tech-pill">Documentation</span>
+                        <div class="project-description">
+                            <p>Designed comprehensive audio assets and Game Design Documentation (GDD) for a serious game project addressing real-world social issues.</p>
                         </div>
+                        <ul class="project-tech-list">
+                            <li>Game Design</li>
+                            <li>Audio Eng</li>
+                            <li>Docs</li>
+                        </ul>
                     </div>
-                </article>
-
-            </div>
+                </li>
+            </ul>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact">
-            <h2 class="section-title">Let's Connect</h2>
-            <div class="contact-layout">
-                <div class="contact-sidebar">
-                    <h3 style="margin-bottom: 1.5rem;">Contact Info</h3>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                        </div>
-                        <span>rafizeerasid@gmail.com</span>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-                        </div>
-                        <span>011-2528 5763</span>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect width="4" height="12" x="2" y="9"/><circle cx="4" cy="4" r="2"/></svg>
-                        </div>
-                        <span>linkedin.com/in/syazmirafizee</span>
-                    </div>
-                </div>
-
-                <form id="contactForm">
-                    <div class="form-group">
-                        <label for="name" class="form-label">Your Name</label>
-                        <input type="text" id="name" class="form-input" placeholder="Enter your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email" class="form-label">Email Address</label>
-                        <input type="email" id="email" class="form-input" placeholder="Enter your email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="message" class="form-label">Message</label>
-                        <textarea id="message" class="form-input" rows="4" placeholder="How can I help you?"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-                </form>
-            </div>
+        <section id="contact" class="fade-in center-section">
+            <p class="mono-heading">03. What's Next?</p>
+            <h2 class="big-heading slate">Get In Touch</h2>
+            <p class="contact-desc">
+                I am currently looking for an internship opportunity. Whether you have a question or just want to say hi, my inbox is always open!
+            </p>
+            <a href="mailto:rafizeerasid@gmail.com" class="btn-main">Say Hello</a>
         </section>
 
-        <footer class="footer">
-            <p>&copy; <span id="year"></span> Muhamad Syazmi Rafizee. Built with pure HTML/CSS/JS.</p>
-        </footer>
     </main>
 
-    <!-- JAVASCRIPT LOGIC -->
-    <script>
-        // 1. Dynamic Year
-        document.getElementById('year').textContent = new Date().getFullYear();
+    <footer>
+        <div class="social-links">
+            </div>
+        <p class="credits">Designed & Built by Syazmi Rafizee</p>
+        <p class="credits-small">&copy; <span id="year"></span></p>
+    </footer>
 
-        // 2. Mobile Nav Toggle
-        const hamburger = document.querySelector('.hamburger');
-        const navLinks = document.querySelector('.nav-links');
-        const links = document.querySelectorAll('.nav-links a');
-
-        hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-            // Animate hamburger lines
-            const bars = document.querySelectorAll('.bar');
-            if (navLinks.classList.contains('active')) {
-                bars[0].style.transform = 'translateY(8px) rotate(45deg)';
-                bars[1].style.opacity = '0';
-                bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
-            } else {
-                bars[0].style.transform = 'none';
-                bars[1].style.opacity = '1';
-                bars[2].style.transform = 'none';
-            }
-        });
-
-        links.forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-                const bars = document.querySelectorAll('.bar');
-                bars[0].style.transform = 'none';
-                bars[1].style.opacity = '1';
-                bars[2].style.transform = 'none';
-            });
-        });
-
-        // 3. Typewriter Effect
-        const textToType = ["Software Developer.", "Multimedia Student.", "UI/UX Enthusiast."];
-        const typeWriterElement = document.getElementById('typewriter');
-        let textIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function typeWriter() {
-            const currentText = textToType[textIndex];
-            
-            if (isDeleting) {
-                typeWriterElement.textContent = currentText.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typeWriterElement.textContent = currentText.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            let typeSpeed = isDeleting ? 40 : 80;
-
-            if (!isDeleting && charIndex === currentText.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                textIndex = (textIndex + 1) % textToType.length;
-                typeSpeed = 500;
-            }
-
-            setTimeout(typeWriter, typeSpeed);
-        }
-        document.addEventListener('DOMContentLoaded', typeWriter);
-
-        // 4. Scroll Spy (Updates Sidebar Active State)
-        const sections = document.querySelectorAll('section');
-        
-        window.addEventListener('scroll', () => {
-            let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-                    current = section.getAttribute('id');
-                }
-            });
-
-            links.forEach(a => {
-                a.classList.remove('active');
-                if (a.getAttribute('href').includes(current)) {
-                    a.classList.add('active');
-                }
-            });
-        });
-
-        // 5. Contact Form Handler
-        const contactForm = document.getElementById('contactForm');
-        contactForm.addEventListener('submit', (e) => {
-            e.preventDefault();
-            const name = document.getElementById('name').value;
-            alert(`Thanks, ${name}! Your message has been sent successfully.`);
-            contactForm.reset();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
