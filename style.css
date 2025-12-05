@@ -102,31 +102,27 @@ nav {
     transition: all 0.3s ease;
 }
 
-/* --- HERO SECTION (UPDATED FOR SIZE) --- */
+/* --- HERO SECTION --- */
 #home {
-    min-height: 100vh; /* Changed from height to min-height to prevent cutting off on small screens */
+    min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background: radial-gradient(circle at top right, var(--sage-bg), var(--white));
-    padding: 100px 20px; /* Added padding to prevent edge squeezing */
+    padding: 100px 20px;
 }
 
-/* Bigger Title */
 #home h1 { 
-    font-size: 5rem; /* Increased size */
+    font-size: 5rem;
     margin-bottom: 15px;
     line-height: 1.1;
 }
 
-#home h2 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-}
+#home h2 { font-size: 2rem; margin-bottom: 15px; }
 
 #home p {
-    font-size: 1.2rem; /* Larger readable text */
+    font-size: 1.2rem;
     max-width: 600px;
     margin: 0 auto;
 }
@@ -135,8 +131,8 @@ nav {
 
 .btn {
     display: inline-block;
-    margin-top: 40px; /* More space above button */
-    padding: 15px 40px; /* Larger button */
+    margin-top: 40px;
+    padding: 15px 40px;
     background-color: var(--dark-green);
     color: var(--white);
     text-decoration: none;
@@ -146,7 +142,7 @@ nav {
 }
 .btn:hover { background-color: var(--primary-green); }
 
-/* --- PROFILE PHOTO (UPDATED SIZE) --- */
+/* --- PROFILE PHOTO --- */
 .profile-photo {
     width: 200px;
     height: 200px;
@@ -159,13 +155,13 @@ nav {
     margin: 0 auto;
 }
 
-/* Specific style for image in Hero Section - MADE LARGER */
+/* Larger Hero Image Style */
 .hero-img {
-    margin-bottom: 40px; /* More space between image and text */
+    margin-bottom: 40px;
     border-color: var(--white); 
-    width: 300px;  /* Increased from 220px */
-    height: 300px; /* Increased from 220px */
-    border-width: 8px; /* Thicker border for better look */
+    width: 300px; 
+    height: 300px;
+    border-width: 8px;
 }
 
 .profile-photo:hover {
@@ -177,7 +173,7 @@ nav {
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 80px; /* Increased gap to stop squeezing */
+    gap: 80px;
     align-items: center;
 }
 
@@ -214,13 +210,13 @@ nav {
 .p3 { transform: rotate(180deg); }
 .p4 { transform: rotate(270deg); }
 
-/* --- PROJECTS SECTION --- */
+/* --- PROJECTS SECTION (CARD IMAGES) --- */
 #projects { background-color: var(--sage-bg); }
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider cards */
-    gap: 40px; /* More space between cards */
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
 }
 
 .project-card {
@@ -229,20 +225,37 @@ nav {
     overflow: hidden;
     box-shadow: var(--shadow);
     transition: transform 0.3s;
+    display: flex;
+    flex-direction: column;
 }
+
 .project-card:hover { transform: translateY(-5px); }
 
+/* Card Image Area */
 .card-header {
-    height: 180px; /* Taller header image area */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: #555;
-    font-size: 1.2rem;
+    height: 200px;
+    padding: 0;
+    background-color: #ddd;
 }
 
-.card-body { padding: 30px; } /* More padding inside cards */
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body { 
+    padding: 25px; 
+    flex-grow: 1;
+}
+
+.card-body h3 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: var(--dark-green);
+    font-family: var(--font-heading);
+}
 
 .tags span {
     display: inline-block;
@@ -258,18 +271,18 @@ nav {
     text-decoration: none;
     font-weight: bold;
     display: inline-block;
-    margin-top: 10px;
+    margin-top: 15px;
 }
 
 /* --- CONTACT SECTION --- */
 #contact { background: var(--white); text-align: center; }
-form { max-width: 650px; margin: 0 auto; text-align: left; } /* Wider form */
+form { max-width: 650px; margin: 0 auto; text-align: left; }
 .form-group { margin-bottom: 25px; }
 label { display: block; margin-bottom: 10px; font-weight: bold; }
 
 input, textarea {
     width: 100%;
-    padding: 15px; /* Larger input areas */
+    padding: 15px;
     border: 1px solid #ddd;
     border-radius: 8px;
     font-family: inherit;
@@ -301,9 +314,9 @@ footer { text-align: center; padding: 30px; background: var(--dark-green); color
     .nav-links.active { left: 0; }
     .about-grid { grid-template-columns: 1fr; }
     
-    /* Responsive adjustment for the large image */
+    /* Responsive adjustment for Hero Image */
     .hero-img {
-        width: 220px; /* Shrink back down slightly on mobile so it fits */
+        width: 220px;
         height: 220px;
     }
     
