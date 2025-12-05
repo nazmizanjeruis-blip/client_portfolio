@@ -35,7 +35,6 @@ h1, h2, h3 { font-family: var(--font-heading); color: var(--dark-green); }
     position: relative;
 }
 
-/* Floral underline decoration */
 .section-title::after {
     content: '✿';
     display: block;
@@ -88,7 +87,6 @@ nav {
 
 .nav-link:hover, .nav-link.active { color: var(--accent-pink); }
 
-/* Mobile Menu Button */
 .hamburger {
     display: none;
     background: none;
@@ -114,12 +112,6 @@ nav {
     background: radial-gradient(circle at top right, var(--sage-bg), var(--white));
 }
 
-.floral-icon {
-    font-size: 3rem;
-    animation: float 3s ease-in-out infinite;
-    display: block;
-}
-
 #home h1 { font-size: 4rem; margin-bottom: 10px; }
 .highlight { color: var(--accent-pink); }
 
@@ -135,7 +127,33 @@ nav {
 }
 .btn:hover { background-color: var(--primary-green); }
 
-/* --- ABOUT SECTION & PROFILE PHOTO --- */
+/* --- PROFILE PHOTO --- */
+.profile-photo {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 5px solid var(--blush-bg);
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease;
+    display: block;
+    margin: 0 auto; /* Centers the image */
+}
+
+/* Specific style for image in Hero Section */
+.hero-img {
+    margin-bottom: 25px;
+    border-color: var(--white); /* White border looks cleaner on gradient */
+    width: 220px; /* Slightly larger for hero */
+    height: 220px;
+}
+
+.profile-photo:hover {
+    transform: scale(1.05);
+    border-color: var(--primary-green);
+}
+
+/* --- ABOUT SECTION --- */
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -145,26 +163,36 @@ nav {
 
 .about-visual {
     position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
+    width: 200px;
+    height: 200px;
+    margin: 0 auto;
 }
 
-/* NEW: Styles for your Resume Picture */
-.profile-photo {
-    width: 250px;
-    height: 250px;
-    object-fit: cover; /* Ensures photo doesn't look squashed */
-    border-radius: 50%; /* Makes it circular */
-    border: 5px solid var(--blush-bg);
-    box-shadow: var(--shadow);
-    transition: transform 0.3s ease;
+/* Flower Logic */
+.flower-center {
+    width: 60px;
+    height: 60px;
+    background: #fdd835;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
 }
-
-.profile-photo:hover {
-    transform: scale(1.05);
-    border-color: var(--primary-green);
+.petal {
+    width: 80px;
+    height: 80px;
+    background: var(--blush-bg);
+    border-radius: 50% 50% 0 50%;
+    position: absolute;
+    top: 50%; left: 50%;
+    transform-origin: 0 0;
+    border: 2px solid #fff;
 }
+.p1 { transform: rotate(0deg); }
+.p2 { transform: rotate(90deg); }
+.p3 { transform: rotate(180deg); }
+.p4 { transform: rotate(270deg); }
 
 /* --- PROJECTS SECTION --- */
 #projects { background-color: var(--sage-bg); }
@@ -212,10 +240,8 @@ nav {
 
 /* --- CONTACT SECTION --- */
 #contact { background: var(--white); text-align: center; }
-
 form { max-width: 600px; margin: 0 auto; text-align: left; }
 .form-group { margin-bottom: 20px; }
-
 label { display: block; margin-bottom: 8px; font-weight: bold; }
 
 input, textarea {
@@ -232,68 +258,23 @@ input:focus, textarea:focus {
     box-shadow: 0 0 5px rgba(216, 27, 96, 0.2);
 }
 
-.btn-submit {
-    width: 100%;
-    border: none;
-    cursor: pointer;
-    font-size: 1rem;
-}
+.btn-submit { width: 100%; border: none; cursor: pointer; font-size: 1rem; }
+footer { text-align: center; padding: 20px; background: var(--dark-green); color: var(--white); }
+#form-feedback { margin-top: 15px; font-weight: bold; }
+.contact-info-direct a { color: var(--primary-green); text-decoration: none; }
 
-footer {
-    text-align: center;
-    padding: 20px;
-    background: var(--dark-green);
-    color: var(--white);
-}
+/* --- ACCESSIBILITY & RESPONSIVE --- */
+*:focus-visible { outline: 3px solid var(--accent-pink); outline-offset: 2px; }
 
-#form-feedback {
-    margin-top: 15px;
-    font-weight: bold;
-}
-
-.contact-info-direct a {
-    color: var(--primary-green);
-    text-decoration: none;
-}
-
-/* --- ACCESSIBILITY --- */
-*:focus-visible {
-    outline: 3px solid var(--accent-pink);
-    outline-offset: 2px;
-}
-
-/* --- RESPONSIVE MEDIA QUERIES --- */
 @media (max-width: 768px) {
     .hamburger { display: block; }
-    
     .nav-links {
-        position: fixed;
-        left: -100%;
-        top: 60px;
-        flex-direction: column;
-        background-color: var(--white);
-        width: 100%;
-        text-align: center;
-        transition: 0.3s;
-        box-shadow: 0 10px 10px rgba(0,0,0,0.1);
-        padding: 20px 0;
+        position: fixed; left: -100%; top: 60px;
+        flex-direction: column; background-color: var(--white);
+        width: 100%; text-align: center; transition: 0.3s;
+        box-shadow: 0 10px 10px rgba(0,0,0,0.1); padding: 20px 0;
     }
     .nav-links.active { left: 0; }
-    
     .about-grid { grid-template-columns: 1fr; }
-    
-    .profile-photo {
-        width: 180px;
-        height: 180px;
-        margin-top: 20px;
-    }
-    
     #home h1 { font-size: 2.5rem; }
-}
-
-/* Animations */
-@keyframes float {
-    0% { transform: translateY(0px); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0px); }
 }
