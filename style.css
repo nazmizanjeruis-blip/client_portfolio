@@ -225,7 +225,7 @@ nav {
     box-shadow: var(--shadow);
     transition: transform 0.3s;
     
-    /* VITAL for alignment */
+    /* VITAL for alignment: Stack Image on top of Text */
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -270,23 +270,20 @@ nav {
     font-family: var(--font-heading);
 }
 
+/* Tags Container - Pushes to bottom */
+.tags {
+    margin-top: auto; 
+}
+
 .tags span {
     display: inline-block;
     background: #eee;
     padding: 6px 12px;
     border-radius: 15px;
     font-size: 0.85rem;
-    margin: 10px 5px 10px 0;
+    margin: 10px 5px 0 0;
 }
 
-.card-link {
-    color: var(--accent-pink);
-    text-decoration: none;
-    font-weight: bold;
-    display: inline-block;
-    margin-top: auto; /* Pushes link to bottom */
-    padding-top: 15px;
-}
 
 /* --- CONTACT SECTION --- */
 #contact { background: var(--white); text-align: center; }
