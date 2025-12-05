@@ -260,6 +260,12 @@ footer {
     font-weight: bold;
 }
 
+/* Contact Direct Link styling */
+.contact-info-direct a {
+    color: var(--primary-green);
+    text-decoration: none;
+}
+
 /* --- ACCESSIBILITY --- */
 *:focus-visible {
     outline: 3px solid var(--accent-pink);
