@@ -1,62 +1,78 @@
-// 1. Dynamic Year
-document.getElementById('year').textContent = new Date().getFullYear();
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // --- 1. Mobile Menu Toggle ---
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-links');
+    const navLinks = document.querySelectorAll('.nav-link');
 
-// 2. Mobile Menu Logic
-const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const links = document.querySelectorAll('.nav-links a');
-
-hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    // Simple bar animation toggle class could be added here
-});
-
-links.forEach(link => {
-    link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-    });
-});
-
-// 3. Scroll Spy (Highlight Active Nav Link)
-const sections = document.querySelectorAll('section');
-const navItems = document.querySelectorAll('.nav-links a');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - 150)) {
-            current = section.getAttribute('id');
-        }
+    hamburger.addEventListener('click', () => {
+        const isActive = hamburger.classList.toggle('active');
+        navMenu.classList.toggle('active');
+        hamburger.setAttribute('aria-expanded', isActive);
     });
 
-    navItems.forEach(item => {
-        item.classList.remove('active');
-        if (item.getAttribute('href').includes(current)) {
-            item.classList.add('active');
-        }
+    // Close menu when clicking a link
+    navLinks.forEach(link => link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navMenu.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', false);
+    }));
+
+
+    // --- 2. Dynamic Time Greeting ---
+    const greetingElement = document.getElementById('greeting');
+    const hour = new Date().getHours();
+    let greetingText = "Good Evening!";
+    
+    if (hour < 12) {
+        greetingText = "Good Morning!";
+    } else if (hour < 18) {
+        greetingText = "Good Afternoon!";
+    }
+    
+    greetingElement.innerText = greetingText;
+
+
+    // --- 3. Scroll Spy (Active Link Highlighting) ---
+    const sections = document.querySelectorAll('section');
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                // Remove active class from all links
+                navLinks.forEach(link => link.classList.remove('active'));
+                
+                // Add active class to current section link
+                const id = entry.target.getAttribute('id');
+                const activeLink = document.querySelector(`.nav-link[href="#${id}"]`);
+                if (activeLink) {
+                    activeLink.classList.add('active');
+                }
+            }
+        });
+    }, { threshold: 0.3 }); // Trigger when 30% of section is visible
+
+    sections.forEach(s => observer.observe(s));
+
+
+    // --- 4. Form Submission Simulation ---
+    const form = document.getElementById('contactForm');
+    const feedback = document.getElementById('form-feedback');
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const btn = form.querySelector('.btn-submit');
+        const originalText = btn.innerText;
+        
+        btn.innerText = 'Sending...';
+        btn.disabled = true;
+
+        setTimeout(() => {
+            feedback.style.color = '#2e7d32'; // Green success color
+            feedback.innerText = 'Message sent successfully! (Demo)';
+            form.reset();
+            btn.innerText = originalText;
+            btn.disabled = false;
+        }, 1500);
     });
-});
-
-// 4. Fade In Animation on Scroll
-const faders = document.querySelectorAll('.fade-in');
-const appearOptions = {
-    threshold: 0.2,
-    rootMargin: "0px 0px -50px 0px"
-};
-
-const appearOnScroll = new IntersectionObserver(function(entries, appearOnScroll) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-            return;
-        } else {
-            entry.target.classList.add('appear');
-            appearOnScroll.unobserve(entry.target);
-        }
-    });
-}, appearOptions);
-
-faders.forEach(fader => {
-    appearOnScroll.observe(fader);
 });
