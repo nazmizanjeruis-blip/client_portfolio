@@ -3,153 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Portfolio of Muhamad Syazmi Rafizee Bin Rasid - Multimedia Computing Student">
-    <title>Syazmi Rafizee | Software Developer</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <title>Syazmi Rafizee | Developer Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <header>
-        <nav>
+        <nav class="navbar">
             <div class="logo">
-                <a href="#home">SR</a>
+                <span class="play-icon">▶</span> SYAZMI.DEV
             </div>
             
-            <div class="nav-right">
-                <ol class="nav-links">
-                    <li><a href="#about"><span>01.</span> About</a></li>
-                    <li><a href="#projects"><span>02.</span> Projects</a></li>
-                    <li><a href="#contact"><span>03.</span> Contact</a></li>
-                </ol>
-                <a href="#" class="resume-btn">Resume</a>
-                
-                <div class="hamburger">
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                    <div class="bar"></div>
-                </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="active">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Services</a></li>
+                <li><a href="#projects">Portfolio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+
+            <div class="social-icons">
+                <a href="#">FB</a>
+                <a href="#">IG</a>
+                <a href="#">LI</a>
+            </div>
+
+            <div class="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </nav>
     </header>
 
-    <div class="sidebar-menu">
-        <ol>
-            <li><a href="#about"><span>01.</span> About</a></li>
-            <li><a href="#projects"><span>02.</span> Projects</a></li>
-            <li><a href="#contact"><span>03.</span> Contact</a></li>
-        </ol>
-        <a href="#" class="resume-btn">Resume</a>
-    </div>
-
-    <main>
-        <section id="home" class="hero-section fade-in">
-            <p class="mono-heading">Hi, my name is</p>
-            <h1 class="big-heading">Syazmi Rafizee.</h1>
-            <h2 class="big-heading slate">I build things for the web.</h2>
-            <p class="hero-desc">
-                I am a final-year Multimedia Computing student at <strong>UNIMAS</strong> specializing in building exceptional digital experiences. Currently, I'm focused on full-stack web development and UI/UX design.
-            </p>
-            <a href="#projects" class="btn-main">Check out my projects!</a>
-        </section>
-
-        <section id="about" class="fade-in">
-            <h2 class="numbered-heading"><span>01.</span> About Me</h2>
-            <div class="about-grid">
-                <div class="about-text">
-                    <p>
-                        Hello! My name is Syazmi and I enjoy creating things that live on the internet. My interest in web development started back in college when I decided to try editing custom Tumblr themes — turns out hacking together HTML & CSS is fun!
-                    </p>
-                    <p>
-                        Fast-forward to today, I am completing my degree at <a href="#" class="inline-link">Universiti Malaysia Sarawak</a>. I am actively seeking an internship for <strong>Feb - Aug 2025</strong>.
-                    </p>
-                    <p>Here are a few technologies I've been working with recently:</p>
-                    <ul class="skills-list">
-                        <li>JavaScript (ES6+)</li>
-                        <li>HTML & CSS</li>
-                        <li>PHP & MySQL</li>
-                        <li>C++</li>
-                        <li>Figma</li>
-                        <li>Git</li>
-                    </ul>
-                </div>
-                <div class="about-img">
-                    <div class="img-wrapper">
-                        <div class="img-placeholder">SR</div> 
-                    </div>
+    <section id="home" class="hero">
+        <div class="hero-bg-overlay"></div> <div class="container hero-container">
+            <div class="hero-text">
+                <p class="subtitle">FOR WEB & MOBILE DEVELOPMENT</p>
+                <h1 class="main-title">DEVELOPER'S<br>PORTFOLIO</h1>
+                
+                <a href="#about" class="btn-corner">
+                    SEE MORE ABOUT ME
+                    <span class="corner-top-left"></span>
+                    <span class="corner-bottom-right"></span>
+                </a>
+                
+                <div class="pagination">
+                    <span class="active">01</span>
+                    <span>02</span>
+                    <span>03</span>
                 </div>
             </div>
-        </section>
 
-        <section id="projects" class="fade-in">
-            <h2 class="numbered-heading"><span>02.</span> Some Things I've Built</h2>
-            
-            <ul class="projects-list">
-                <li class="project-item">
-                    <div class="project-content">
-                        <p class="project-overline">Featured Project</p>
-                        <h3 class="project-title">Kuching ART App</h3>
-                        <div class="project-description">
-                            <p>A high-fidelity interactive prototype for Kuching's Autonomous Rapid Transit system. Designed with a focus on real-time travel visualization and accessibility standards.</p>
-                        </div>
-                        <ul class="project-tech-list">
-                            <li>UI/UX</li>
-                            <li>Figma</li>
-                            <li>HCI</li>
-                        </ul>
+            <div class="hero-image-wrapper">
+                <div class="hero-img-placeholder">
+                    <div class="silhouette"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="services">
+        <div class="container services-container">
+            <div class="services-text">
+                <p class="section-label">MY EXPERTISE</p>
+                <h2 class="section-heading">WHAT I DO?</h2>
+                <div class="blue-line"></div>
+                
+                <p class="description">
+                    I am a Multimedia Computing student passionate about bridging the gap between design and functionality. If you hire me, you get a dedicated developer ready to build custom solutions for your business needs.
+                </p>
+
+                <a href="#projects" class="btn-bracket">
+                    VIEW ALL PROJECTS
+                </a>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-item">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>
                     </div>
-                </li>
+                    <h3>Web Development</h3>
+                    <p>Building responsive, accessible, and dynamic websites using HTML, CSS, PHP, and MySQL.</p>
+                </div>
 
-                <li class="project-item">
-                    <div class="project-content">
-                        <p class="project-overline">Featured Project</p>
-                        <h3 class="project-title">Coffee Shop E-Commerce</h3>
-                        <div class="project-description">
-                            <p>A web application for a local coffee shop featuring secure customer record management, inventory tracking, and order processing workflows using relational databases.</p>
-                        </div>
-                        <ul class="project-tech-list">
-                            <li>PHP</li>
-                            <li>MySQL</li>
-                            <li>HTML/CSS</li>
-                        </ul>
+                <div class="service-item">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>
                     </div>
-                </li>
+                    <h3>UI/UX Design</h3>
+                    <p>Creating high-fidelity prototypes and intuitive user interfaces using tools like Figma.</p>
+                </div>
 
-                <li class="project-item">
-                    <div class="project-content">
-                        <p class="project-overline">Featured Project</p>
-                        <h3 class="project-title">Mobile Game Design</h3>
-                        <div class="project-description">
-                            <p>Designed comprehensive audio assets and Game Design Documentation (GDD) for a serious game project addressing real-world social issues.</p>
-                        </div>
-                        <ul class="project-tech-list">
-                            <li>Game Design</li>
-                            <li>Audio Eng</li>
-                            <li>Docs</li>
-                        </ul>
+                <div class="service-item">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"></rect><line x1="12" y1="18" x2="12.01" y2="18"></line></svg>
                     </div>
-                </li>
-            </ul>
-        </section>
+                    <h3>Mobile Apps</h3>
+                    <p>Developing functional mobile applications and designing interactive mobile experiences.</p>
+                </div>
 
-        <section id="contact" class="fade-in center-section">
-            <p class="mono-heading">03. What's Next?</p>
-            <h2 class="big-heading slate">Get In Touch</h2>
-            <p class="contact-desc">
-                I am currently looking for an internship opportunity. Whether you have a question or just want to say hi, my inbox is always open!
-            </p>
-            <a href="mailto:rafizeerasid@gmail.com" class="btn-main">Say Hello</a>
-        </section>
-
-    </main>
+                <div class="service-item">
+                    <div class="icon-box">
+                        <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                    </div>
+                    <h3>Game Design</h3>
+                    <p>Crafting engaging game mechanics, documentation, and audio assets for immersive games.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <div class="social-links">
-            </div>
-        <p class="credits">Designed & Built by Syazmi Rafizee</p>
-        <p class="credits-small">&copy; <span id="year"></span></p>
+        <p>&copy; <span id="year"></span> Syazmi Rafizee. Inspired by Videograph Theme.</p>
     </footer>
 
     <script src="script.js"></script>
