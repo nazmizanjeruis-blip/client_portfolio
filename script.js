@@ -3,93 +3,54 @@ document.getElementById('year').textContent = new Date().getFullYear();
 
 // 2. Mobile Nav Toggle
 const hamburger = document.querySelector('.hamburger');
-const navLinks = document.querySelector('.nav-links');
-const links = document.querySelectorAll('.nav-links a');
+const sidebar = document.querySelector('.sidebar-menu');
+const bars = document.querySelectorAll('.bar');
+const body = document.querySelector('body');
+const navLinks = document.querySelectorAll('.sidebar-menu a');
 
 hamburger.addEventListener('click', () => {
-    navLinks.classList.toggle('active');
-    // Animate hamburger lines
-    const bars = document.querySelectorAll('.bar');
-    if (navLinks.classList.contains('active')) {
+    sidebar.classList.toggle('active');
+    
+    // Toggle Hamburger Animation
+    if (sidebar.classList.contains('active')) {
         bars[0].style.transform = 'translateY(8px) rotate(45deg)';
         bars[1].style.opacity = '0';
         bars[2].style.transform = 'translateY(-8px) rotate(-45deg)';
+        body.style.overflow = 'hidden'; // Prevent scrolling when menu is open
     } else {
         bars[0].style.transform = 'none';
         bars[1].style.opacity = '1';
         bars[2].style.transform = 'none';
+        body.style.overflow = 'auto';
     }
 });
 
-links.forEach(link => {
+// Close sidebar when a link is clicked
+navLinks.forEach(link => {
     link.addEventListener('click', () => {
-        navLinks.classList.remove('active');
-        const bars = document.querySelectorAll('.bar');
+        sidebar.classList.remove('active');
         bars[0].style.transform = 'none';
         bars[1].style.opacity = '1';
         bars[2].style.transform = 'none';
+        body.style.overflow = 'auto';
     });
 });
 
-// 3. Typewriter Effect
-const textToType = ["Software Developer.", "Multimedia Student.", "UI/UX Enthusiast."];
-const typeWriterElement = document.getElementById('typewriter');
-let textIndex = 0;
-let charIndex = 0;
-let isDeleting = false;
+// 3. Fade In On Scroll Animation
+const observerOptions = {
+    root: null,
+    rootMargin: '0px',
+    threshold: 0.1
+};
 
-function typeWriter() {
-    const currentText = textToType[textIndex];
-    
-    if (isDeleting) {
-        typeWriterElement.textContent = currentText.substring(0, charIndex - 1);
-        charIndex--;
-    } else {
-        typeWriterElement.textContent = currentText.substring(0, charIndex + 1);
-        charIndex++;
-    }
-
-    let typeSpeed = isDeleting ? 40 : 80;
-
-    if (!isDeleting && charIndex === currentText.length) {
-        typeSpeed = 2000;
-        isDeleting = true;
-    } else if (isDeleting && charIndex === 0) {
-        isDeleting = false;
-        textIndex = (textIndex + 1) % textToType.length;
-        typeSpeed = 500;
-    }
-
-    setTimeout(typeWriter, typeSpeed);
-}
-document.addEventListener('DOMContentLoaded', typeWriter);
-
-// 4. Scroll Spy (Updates Sidebar Active State)
-const sections = document.querySelectorAll('section');
-
-window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-        const sectionTop = section.offsetTop;
-        const sectionHeight = section.clientHeight;
-        if (pageYOffset >= (sectionTop - sectionHeight / 3)) {
-            current = section.getAttribute('id');
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target); // Only animate once
         }
     });
+}, observerOptions);
 
-    links.forEach(a => {
-        a.classList.remove('active');
-        if (a.getAttribute('href').includes(current)) {
-            a.classList.add('active');
-        }
-    });
-});
-
-// 5. Contact Form Handler
-const contactForm = document.getElementById('contactForm');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    alert(`Thanks, ${name}! Your message has been sent successfully.`);
-    contactForm.reset();
-});
+const fadeElements = document.querySelectorAll('.fade-in');
+fadeElements.forEach(el => observer.observe(el));
