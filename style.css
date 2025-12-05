@@ -102,32 +102,51 @@ nav {
     transition: all 0.3s ease;
 }
 
-/* --- HERO SECTION --- */
+/* --- HERO SECTION (UPDATED FOR SIZE) --- */
 #home {
-    height: 100vh;
+    min-height: 100vh; /* Changed from height to min-height to prevent cutting off on small screens */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     background: radial-gradient(circle at top right, var(--sage-bg), var(--white));
+    padding: 100px 20px; /* Added padding to prevent edge squeezing */
 }
 
-#home h1 { font-size: 4rem; margin-bottom: 10px; }
+/* Bigger Title */
+#home h1 { 
+    font-size: 5rem; /* Increased size */
+    margin-bottom: 15px;
+    line-height: 1.1;
+}
+
+#home h2 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+#home p {
+    font-size: 1.2rem; /* Larger readable text */
+    max-width: 600px;
+    margin: 0 auto;
+}
+
 .highlight { color: var(--accent-pink); }
 
 .btn {
     display: inline-block;
-    margin-top: 30px;
-    padding: 12px 30px;
+    margin-top: 40px; /* More space above button */
+    padding: 15px 40px; /* Larger button */
     background-color: var(--dark-green);
     color: var(--white);
     text-decoration: none;
-    border-radius: 25px;
+    border-radius: 30px;
+    font-size: 1.1rem;
     transition: background 0.3s;
 }
 .btn:hover { background-color: var(--primary-green); }
 
-/* --- PROFILE PHOTO --- */
+/* --- PROFILE PHOTO (UPDATED SIZE) --- */
 .profile-photo {
     width: 200px;
     height: 200px;
@@ -137,15 +156,16 @@ nav {
     box-shadow: var(--shadow);
     transition: transform 0.3s ease;
     display: block;
-    margin: 0 auto; /* Centers the image */
+    margin: 0 auto;
 }
 
-/* Specific style for image in Hero Section */
+/* Specific style for image in Hero Section - MADE LARGER */
 .hero-img {
-    margin-bottom: 25px;
-    border-color: var(--white); /* White border looks cleaner on gradient */
-    width: 220px; /* Slightly larger for hero */
-    height: 220px;
+    margin-bottom: 40px; /* More space between image and text */
+    border-color: var(--white); 
+    width: 300px;  /* Increased from 220px */
+    height: 300px; /* Increased from 220px */
+    border-width: 8px; /* Thicker border for better look */
 }
 
 .profile-photo:hover {
@@ -157,7 +177,7 @@ nav {
 .about-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 50px;
+    gap: 80px; /* Increased gap to stop squeezing */
     align-items: center;
 }
 
@@ -199,8 +219,8 @@ nav {
 
 .project-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Slightly wider cards */
+    gap: 40px; /* More space between cards */
 }
 
 .project-card {
@@ -213,22 +233,23 @@ nav {
 .project-card:hover { transform: translateY(-5px); }
 
 .card-header {
-    height: 150px;
+    height: 180px; /* Taller header image area */
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: bold;
     color: #555;
+    font-size: 1.2rem;
 }
 
-.card-body { padding: 25px; }
+.card-body { padding: 30px; } /* More padding inside cards */
 
 .tags span {
     display: inline-block;
     background: #eee;
-    padding: 4px 10px;
+    padding: 6px 12px;
     border-radius: 15px;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     margin: 10px 5px 10px 0;
 }
 
@@ -236,20 +257,23 @@ nav {
     color: var(--accent-pink);
     text-decoration: none;
     font-weight: bold;
+    display: inline-block;
+    margin-top: 10px;
 }
 
 /* --- CONTACT SECTION --- */
 #contact { background: var(--white); text-align: center; }
-form { max-width: 600px; margin: 0 auto; text-align: left; }
-.form-group { margin-bottom: 20px; }
-label { display: block; margin-bottom: 8px; font-weight: bold; }
+form { max-width: 650px; margin: 0 auto; text-align: left; } /* Wider form */
+.form-group { margin-bottom: 25px; }
+label { display: block; margin-bottom: 10px; font-weight: bold; }
 
 input, textarea {
     width: 100%;
-    padding: 12px;
+    padding: 15px; /* Larger input areas */
     border: 1px solid #ddd;
     border-radius: 8px;
     font-family: inherit;
+    font-size: 1rem;
 }
 
 input:focus, textarea:focus {
@@ -258,8 +282,8 @@ input:focus, textarea:focus {
     box-shadow: 0 0 5px rgba(216, 27, 96, 0.2);
 }
 
-.btn-submit { width: 100%; border: none; cursor: pointer; font-size: 1rem; }
-footer { text-align: center; padding: 20px; background: var(--dark-green); color: var(--white); }
+.btn-submit { width: 100%; border: none; cursor: pointer; font-size: 1.1rem; padding: 15px; }
+footer { text-align: center; padding: 30px; background: var(--dark-green); color: var(--white); }
 #form-feedback { margin-top: 15px; font-weight: bold; }
 .contact-info-direct a { color: var(--primary-green); text-decoration: none; }
 
@@ -276,5 +300,12 @@ footer { text-align: center; padding: 20px; background: var(--dark-green); color
     }
     .nav-links.active { left: 0; }
     .about-grid { grid-template-columns: 1fr; }
-    #home h1 { font-size: 2.5rem; }
+    
+    /* Responsive adjustment for the large image */
+    .hero-img {
+        width: 220px; /* Shrink back down slightly on mobile so it fits */
+        height: 220px;
+    }
+    
+    #home h1 { font-size: 3rem; }
 }
